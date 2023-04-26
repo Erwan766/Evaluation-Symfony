@@ -2,26 +2,21 @@
 
 {% block title %}Bienvenue !{% endblock %}
 
-
 {% block body %}
 
-    <main>
-        <div class="l1">
-            <a>Nos dernières références ajoutés</a>   
-        </div>
+<main>
+    <div class="l1">
+        <a>Nos dernières références ajoutées</a>
+    </div>
 
-        <section class="items" id="items"> 
-            <h1>Liste des produits</h1>
-    <ul>
-        {% for produits in listeProduit %}
-            <img src="/img/{{ produits.image }}" alt="{{produits.nom}}">
-            <li>{{ produits.nom }}</li>
-        {% endfor %}
-    </ul>
-        </section>
-
-    </main>
+    <section class="items" id="items">
+        <h1>Liste des produits</h1>
+        <ul>
+            {% for produits in listeProduit %}
+                <img src="/img/{{ produits.image }}" alt="{{produits.nom}}">
+                <li>{{produits.nom }}</li>
+            {% endfor %}
+        </ul>
+    </section>
+</main>
 {% endblock %}
-
-
-
