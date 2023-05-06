@@ -1,0 +1,33 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}{{produit.nom }}{% endblock %}
+
+
+{% block body %}
+<main>
+    <section class="items" id="items">
+        <h1>{{produit.nom}}</h1>
+        <ul>
+            <img src="/img/{{ produit.image }}" alt="{{produit.nom}}">
+            <p>{{produit.description}}</p>
+            <p>Nous en avons {{produit.stock}} en stock </p>
+
+            <h2>Les avis clients :</h2><br>
+
+        {% for commentaire in commentaire %}
+            <div style:"border: solid black 2px;">
+            <h3>{{commentaire.Titre}}</h3><br>
+            <P>{{commentaire.Contenu}}</p>
+            </div>
+        {% endfor %}
+        </ul>
+
+        <h2>Ajouter un commentaire</h2>
+            {{ form_start(form) }}
+            {{ form_widget(form) }}
+            <button type="submit">Ajouter</button>
+            {{ form_end(form) }}
+    </section>
+</main>
+{% endblock %}
+

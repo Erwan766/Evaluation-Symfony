@@ -35,6 +35,13 @@ class Produit
     {
         $this->commentaireId = new ArrayCollection();
     }
+        /**
+     * @return Collection|Commentaire[]
+     */
+    public function getCommentaire(): Collection
+    {
+        return $this->commentaireId;
+    }
 
     public function getId(): ?int
     {
@@ -117,5 +124,9 @@ class Produit
         }
 
         return $this;
+    }
+
+    public function __toString(){
+        return $this->nom;
     }
 }

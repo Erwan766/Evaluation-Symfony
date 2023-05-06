@@ -1,17 +1,16 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Bienvenue !{% endblock %}
+{% block title %}Liste de nos produits{% endblock %}
 
 {% block body %}
-
 <main>
     <section class="items" id="items">
-        <h1>Nos dernières références ajoutées</h1>
+        <h1>Nos produits</h1>
         <ul>
-            {% for produits in dernierProduits %}
+            {% for produits in produits %}
             <a href="{{ url("produitInfo", {id: produits.id}) }}">
                 <img src="/img/{{ produits.image }}" alt="{{produits.nom}}">
-                {{produits.nom }}</a>
+            {{produits.nom }}</a>
             {% endfor %}
         </ul>
     </section>
