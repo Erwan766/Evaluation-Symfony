@@ -14,6 +14,8 @@ class CommentaireType extends AbstractType
         $builder
             ->add('titre')
             ->add('contenu')
+            // ligne commenté ainsi lors de la création d'un commentaire il sera directement associé au produit de la page
+            //  ->add('produitId')
         ;
     }
 

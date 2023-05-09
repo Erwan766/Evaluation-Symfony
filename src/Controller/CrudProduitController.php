@@ -21,7 +21,7 @@ class CrudProduitController extends AbstractController
         ]);
     }
 
-    #[Route('/new', name: 'app_crud_produit_new', methods: ['GET', 'POST'])]
+    #[Route('/new', name: 'app_crud_produit_new', methods: ['POST', 'GET'])]
     public function new(Request $request, ProduitRepository $produitRepository): Response
     {
         $produit = new Produit();

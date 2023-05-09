@@ -4,16 +4,29 @@
 
 {% block body %}
 
-<main>
-    <section class="items" id="items">
-        <h1>Nos dernières références ajoutées</h1>
-        <ul>
-            {% for produits in dernierProduits %}
-            <a href="{{ url("produitInfo", {id: produits.id}) }}">
-                <img src="/img/{{ produits.image }}" alt="{{produits.nom}}">
-                {{produits.nom }}</a>
-            {% endfor %}
-        </ul>
-    </section>
-</main>
+    <center><h1>Soyez le bienvenue sur notre site</h1><br><br></center>
+
+    <h2>Nos dernières références ajoutées</h2><br>
+
+<div class="container-fluid">
+    <div class="row row-cols-5 g-4 justify-content-center">
+        {# boucle for pour récupérer tous les produits dans dernierProduits #}
+        {% for produits in dernierProduits %}
+            <div class="col px-md-2 my-3">
+                <div class="card h-75">
+                    <img src="/img/{{ produits.image }}" alt="{{produits.nom}}" class="card-img-top h-50">
+                    <div class="card-body text-center pt-0 ">
+                        <h5 class="card-title">{{produits.nom }}</h5>
+                        <p>{{produits.description}}</p>
+                        <div class="mt-auto">
+                            <a href="{{ url("produitInfo", {id: produits.id}) }}" class="btn" style="background-color:#A2A2FC; color: white;">Voir la fiche produit</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+</div>
+
+
 {% endblock %}

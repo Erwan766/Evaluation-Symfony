@@ -4,30 +4,58 @@
 
 
 {% block body %}
-<main>
-    <section class="items" id="items">
-        <h1>{{produit.nom}}</h1>
-        <ul>
-            <img src="/img/{{ produit.image }}" alt="{{produit.nom}}">
+{# Bouton de retour à l'accueil #}
+<a href="/" class="btn" style="width: 50px; background-color:#A2A2FC; color: white;"> < </a>
+
+<div class="container mt-5">
+    <div class="row justify-content-start">
+        <div class="col-md-4">
+            <img src="/img/{{ produit.image }}" alt="{{produit.nom}}" class="img-fluid w-100">
+        </div>
+        <div class="col-md-8">
+            <h1>{{produit.nom}}</h1>
             <p>{{produit.description}}</p>
             <p>Nous en avons {{produit.stock}} en stock </p>
+        </div>
+    </div>
+</div>
 
-            <h2>Les avis clients :</h2><br>
+<div class="container mt-5">
+    <div class="row">
+        <div class="col">
+            <h2>Les avis clients :</h2>
+            <br>
+            {# récupération de tout les commentaires associé au produit #}
+            {% for commentaire in commentaire %}
+                <div style="border: solid black 2px;">
+                    <h3>{{commentaire.Titre}}</h3><br>
+                    <p>{{commentaire.Contenu}}</p>
+                </div><br>
+            {% endfor %}
+        </div>
+    </div>
+</div>
 
-        {% for commentaire in commentaire %}
-            <div style:"border: solid black 2px;">
-            <h3>{{commentaire.Titre}}</h3><br>
-            <P>{{commentaire.Contenu}}</p>
-            </div>
-        {% endfor %}
-        </ul>
-
-        <h2>Ajouter un commentaire</h2>
+<div class="container mt-5">
+    <div class="row">
+        <div class="col">
+            <h2>Ajouter un commentaire :</h2>
+            <br>
+            {# Mise en place du formulaire pour rédiger un commentaire avec en paramètre le formulaire CommentaireType importer dans le controller #}
             {{ form_start(form) }}
-            {{ form_widget(form) }}
-            <button type="submit">Ajouter</button>
+            <div class="form-group">
+                {{ form_label(form.titre, "Titre") }}
+                {{ form_widget(form.titre, {'attr': {'class': 'form-control'}}) }}
+            </div>
+            <div class="form-group">
+                {{ form_label(form.contenu, "Commentaire") }}
+                {{ form_widget(form.contenu, {'attr': {'class': 'form-control'}}) }}
+            </div><br>
+            <button type="submit" class="btn" style="background-color:#A2A2FC; color: white;">Ajouter</button><br><br>
             {{ form_end(form) }}
-    </section>
-</main>
+        </div>
+    </div>
+</div>
+
 {% endblock %}
 

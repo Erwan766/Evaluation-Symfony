@@ -27,8 +27,8 @@ class Produit
 
     #[ORM\Column]
     private ?int $stock = null;
-
-    #[ORM\OneToMany(mappedBy: 'produitId', targetEntity: Commentaire::class)]
+    // cascade: ['remove'] permet de supprimer les commentaires associés au produit
+    #[ORM\OneToMany(mappedBy: 'produitId', targetEntity: Commentaire::class, cascade: ['remove'])]
     private Collection $commentaireId;
 
     public function __construct()

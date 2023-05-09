@@ -1,3 +1,4 @@
+
 body{
     background-color: rgb(233, 233, 233);
 }
@@ -33,10 +34,13 @@ body{
     width: 50%;
     padding-top: 0.5%;
     text-decoration: none;
+
 }
+
 
 .nav :hover{
     background-color: rgb(155, 155, 155);
+    transform: scale(1.02);
 }
 
 .logo
@@ -54,4 +58,27 @@ body{
 img{
 width: 80px;
 height: 80px;
+}
+
+.btn:hover{
+    transform: scale(1.1);
+}
+
+.footer{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+}
+
+.link1 , .link2{
+    text-decoration: none;
+    color: rgb(116, 116, 116);
+    margin-top: 2%;
+}
+
+.link1:hover , .link2:hover{
+    text-decoration: none;
+    color: rgb(116, 116, 116);
+    margin-top: 2%;
+    transform: scale(1.1);
 }

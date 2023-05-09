@@ -1,11 +1,13 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}New Produit{% endblock %}
+{% block title %}Ajouter un produit{% endblock %}
 
 {% block body %}
-    <h1>Create new Produit</h1>
+  <a href="{{ path('app_crud_produit_index') }}" class="btn" style="background-color:#A2A2FC; color: white;"> < Retour à la liste</a>
+  
+     <h1 class="text-center my-4">Ajouter un produit</h1>
 
     {{ include('crud_produit/_form.html.twig') }}
 
-    <a href="{{ path('app_crud_produit_index') }}">back to list</a>
+
 {% endblock %}

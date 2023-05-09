@@ -1,38 +1,44 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Produit{% endblock %}
+{% block title %}voir {{produit.nom}}{% endblock %}
 
 {% block body %}
-    <h1>Produit</h1>
+  <a href="{{ path('app_crud_produit_index') }}" class="btn" style="background-color:#A2A2FC; color: white;"> < Retour à la liste</a>
 
-    <table class="table">
-        <tbody>
-            <tr>
-                <th>Id</th>
-                <td>{{ produit.id }}</td>
-            </tr>
-            <tr>
-                <th>Nom</th>
-                <td>{{ produit.nom }}</td>
-            </tr>
-            <tr>
-                <th>Description</th>
-                <td>{{ produit.description }}</td>
-            </tr>
-            <tr>
-                <th>Image</th>
-                <td>{{ produit.image }}</td>
-            </tr>
-            <tr>
-                <th>Stock</th>
-                <td>{{ produit.stock }}</td>
-            </tr>
-        </tbody>
-    </table>
-
-    <a href="{{ path('app_crud_produit_index') }}">back to list</a>
-
-    <a href="{{ path('app_crud_produit_edit', {'id': produit.id}) }}">edit</a>
-
-    {{ include('crud_produit/_delete_form.html.twig') }}
+    <div class="container">
+        <h1 class="text-center my-4">{{produit.nom}}</h1>
+        <table class="table table-bordered">
+            <tbody>
+                <tr>
+                    <th>Id</th>
+                    <td>{{ produit.id }}</td>
+                </tr>
+                <tr>
+                    <th>Nom</th>
+                    <td>{{ produit.nom }}</td>
+                </tr>
+                <tr>
+                    <th>Description</th>
+                    <td>{{ produit.description }}</td>
+                </tr>
+                <tr>
+                    <th>Image</th>
+                    <td>{{ produit.image }}</td>
+                </tr>
+                <tr>
+                    <th>Stock</th>
+                    <td>{{ produit.stock }}</td>
+                </tr>
+            </tbody>
+        </table>
+        <div class="d-flex justify-content-between">
+            <a href="{{ path('app_crud_produit_edit', {'id': produit.id}) }}" class="btn btn-warning">Modifier</a>
+            <form action="{{ path('app_crud_commentaire_delete', {'id': produit.id}) }}" method="post" onsubmit="return confirm('Voulez-vous vraiment supprimer ce commentaire ?');">
+                <input type="hidden" name="_method" value="DELETE">
+                <input type="hidden" name="_token" value="{{ csrf_token('delete' ~ produit.id) }}">
+                <button type="submit" class="btn btn-danger">Supprimer</button>
+            </form>
+        </div>
+        <hr>
+    </div>
 {% endblock %}
