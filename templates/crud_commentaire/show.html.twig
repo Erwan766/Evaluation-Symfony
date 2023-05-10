@@ -31,6 +31,7 @@
             </tbody>
         </table>
         <div class="d-flex justify-content-between">
+            {# import du formulaire de supression pour avoir un bouton stylisé #}
             <form action="{{ path('app_crud_commentaire_delete', {'id': commentaire.id}) }}" method="post" onsubmit="return confirm('Voulez-vous vraiment supprimer ce commentaire ?');">
                 <input type="hidden" name="_method" value="DELETE">
                 <input type="hidden" name="_token" value="{{ csrf_token('delete' ~ commentaire.id) }}">

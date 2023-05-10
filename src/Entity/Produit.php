@@ -126,6 +126,7 @@ class Produit
         return $this;
     }
 
+    // création de la fonction toString pour récupérer le nom en tant que string et non un array
     public function __toString(){
         return $this->nom;
     }

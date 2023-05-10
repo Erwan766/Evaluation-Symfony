@@ -30,6 +30,8 @@
                                     <a href="{{ path('app_crud_commentaire_show', {'id': commentaire.id}) }}" class="btn" style="background-color:#A2A2FC; color: white;">Voir</a>
                                     {# Ligne commenté pour ne pas pouvoir modifer un commentaire #}
                                     {# <a href="{{ path('app_crud_commentaire_edit', {'id': commentaire.id}) }}" class="btn btn-warning">Modifier</a> #}
+
+                                    {# import du formulaire de supression pour avoir un bouton stylisé #}
                                     <form action="{{ path('app_crud_commentaire_delete', {'id': commentaire.id}) }}" method="post" onsubmit="return confirm('Voulez-vous vraiment supprimer ce commentaire ?');">
                                         <input type="hidden" name="_method" value="DELETE">
                                         <input type="hidden" name="_token" value="{{ csrf_token('delete' ~ commentaire.id) }}">

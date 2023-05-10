@@ -33,6 +33,7 @@
         </table>
         <div class="d-flex justify-content-between">
             <a href="{{ path('app_crud_produit_edit', {'id': produit.id}) }}" class="btn btn-warning">Modifier</a>
+            {# import du formulaire de supression pour avoir un bouton stylisé #}
             <form action="{{ path('app_crud_commentaire_delete', {'id': produit.id}) }}" method="post" onsubmit="return confirm('Voulez-vous vraiment supprimer ce commentaire ?');">
                 <input type="hidden" name="_method" value="DELETE">
                 <input type="hidden" name="_token" value="{{ csrf_token('delete' ~ produit.id) }}">

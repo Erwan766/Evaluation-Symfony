@@ -29,7 +29,7 @@ class HomeController extends AbstractController
             'dernierProduits' => $dernierProduits,
         ]);
     }
-    // controller de la page qui affiche tout les produits 
+    // controller de la page qui affiche tout les produits à la page /liste
     #[Route('/liste', name: 'app_liste')]
     public function liste(ManagerRegistry $doctrine): Response
     {
@@ -42,7 +42,7 @@ class HomeController extends AbstractController
         ]);
     }
 
-    // controller de la page d'information de chaques produit
+    // controller de la page d'information de chaques produit à la page /produit/id du produit/
     #[Route('/produit/{id}', name: 'produitInfo')]
     public function infoProduit(Produit $produit, Request $request, EntityManagerInterface $entityManager): Response
     { 

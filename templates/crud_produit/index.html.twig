@@ -35,6 +35,7 @@
                         <a href="{{ path('app_crud_produit_show', {'id': produit.id}) }}" class="btn" style="background-color:#A2A2FC; color: white;">Voir</a>
                         <a href="{{ path('app_crud_produit_edit', {'id': produit.id}) }}" class="btn btn-warning">Modifier</a>
                         <form action="{{ path('app_crud_produit_delete', {'id': produit.id}) }}" method="post" onsubmit="return confirm('Voulez-vous vraiment supprimer ce produit ?');">
+                        {# import du formulaire de supression pour avoir un bouton stylisé #}
                             <input type="hidden" name="_method" value="DELETE">
                             <input type="hidden" name="_token" value="{{ csrf_token('delete' ~ produit.id) }}">
                             <button type="submit" class="btn btn-danger">Supprimer</button>
